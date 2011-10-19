@@ -9,6 +9,6 @@ class Link < ActiveRecord::Base
   private
 
   def create_key
-    self.update_attribute 'key', self.id.base62_encode
+    self.key = self.id.base62_encode
   end
 end

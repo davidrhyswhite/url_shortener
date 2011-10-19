@@ -14,29 +14,26 @@ class Application < Sinatra::Base
   end
 
   post '/' do
-    @link = Link.new(:url => params[:url])
+    @link = Link.new :url => params[:url]
     if @link.save
-      redirect "/success/#{@short_url.key}"
+      redirect "/links/#{@link.key}"
     else
       erb :error
     end
   end
 
-  get '/success/:key' do |key|
-    @link = Link.find_by_key(key)
+  get '/links/:key' do
+    @link = Link.find_by_key params[:key]
     erb :success
   end
 
-  get '*' do |key|
-    if @link = Link.find_by_key(key)
-      @link.increment_clicks
-      redirect @link.url
-    else
-      raise Sinatra::NotFound
-    end
+  get '/*' do |key|
+    "#{key}"
+  #  if @link = Link.find_by_key key
+  #    @link.increment_clicks
+  #    redirect @link.url
+  #  else
+  #    raise Sinatra::NotFound
+  #  end
   end
-
-
-
-
 end
