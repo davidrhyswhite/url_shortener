@@ -1,6 +1,6 @@
 class Link < ActiveRecord::Base
 
-  after_create :create_key
+  after_save :create_key, :unless => :key_exists?
 
   def increment_clicks
     self.update_attribute 'clicks', self.clicks + 1
@@ -10,5 +10,11 @@ class Link < ActiveRecord::Base
 
   def create_key
     self.key = self.id.base62_encode
+    self.save
   end
+
+  def key_exists?
+    return !self.key.blank?
+  end
+
 end

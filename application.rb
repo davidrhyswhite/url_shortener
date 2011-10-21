@@ -24,16 +24,19 @@ class Application < Sinatra::Base
 
   get '/links/:key' do
     @link = Link.find_by_key params[:key]
-    erb :success
+    erb :show
+  end
+
+  get '/links' do
+    @links = Link.all
+    erb :links
   end
 
   get '/*' do |key|
-    "#{key}"
-  #  if @link = Link.find_by_key key
-  #    @link.increment_clicks
-  #    redirect @link.url
-  #  else
-  #    raise Sinatra::NotFound
-  #  end
+    @link = Link.find_by_key key
+    if @link
+      @link.increment_clicks
+      redirect @link.url
+    end
   end
 end
