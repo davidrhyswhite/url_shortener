@@ -1,6 +1,6 @@
 <% @links.each do |link| %>
   <p class="url">
     <span class="clicks"><%= link.clicks %></span>
-    <a href="http://local.host:9292/<%= link.key %>">http://local.host:9292/<%= link.key %></a>
+    <a href="http://local.host:9292/<%= link.key %>"><%= link.url %></a>
   </p>
 <% end %>

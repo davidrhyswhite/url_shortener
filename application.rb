@@ -9,7 +9,6 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    @link = Link.new
     erb :index
   end
 

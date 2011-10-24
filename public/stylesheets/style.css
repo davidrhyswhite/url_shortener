@@ -1,17 +1,37 @@
 
 /* Reset */
 
-footer, header { display: block; }
+footer, header { 
+  display: block; 
+}
 
-body { margin: 0; font-size: 13px; line-height: 1.231; background-color: #F5F5F5;}
+body { 
+  margin: 0; 
+  font-size: 13px; 
+  line-height: 1.231; 
+  background-color: #E1E1E1;
+}
 
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body, button, input, select, textarea { 
+  font-family: sans-serif; 
+  color: #222;
+}
 
-ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+ul, ol { 
+  margin: 1em 0; 
+  padding: 0 0 0 40px;
+}
 
 /* Form */
 
 form { margin: 0; }
+
+form ol { 
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 fieldset { 
   border: 0;
   margin: 0;
@@ -22,11 +42,6 @@ label {
   cursor: pointer;
   font-size: 20px;
   display: none;
-}
-form ol { 
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 button, input, select, textarea { 
